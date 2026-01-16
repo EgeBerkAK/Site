@@ -11,10 +11,10 @@ var kavaResponsiveMenu = function kavaResponsiveMenu() {
 		toggleButtonTemplate: '<i class="mobile-menu-close fa fa-bars" aria-hidden="true"></i><i class="mobile-menu-open fa fa-times" aria-hidden="true"></i>'
 	};
 
-	if ( typeof Object.assign !== 'function' ) {
-		options = jQuery.extend( {}, defaults, options );
+	if (typeof Object.assign !== 'function') {
+		options = jQuery.extend({}, defaults, options);
 	} else {
-		options = Object.assign( defaults, options );
+		options = Object.assign(defaults, options);
 	}
 
 	var wrapper = options.wrapper.nodeType ?
@@ -113,20 +113,20 @@ var kavaResponsiveMenu = function kavaResponsiveMenu() {
 
 	// general helpers
 	function runSeries(functions) {
-		functions.forEach( function( func ) {
+		functions.forEach(function (func) {
 			return func();
-		} );
+		});
 	}
 };
 
 var Kava_Theme_JS;
 
-(function($) {
+(function ($) {
 	'use strict';
 
 	Kava_Theme_JS = {
 
-		init: function() {
+		init: function () {
 			this.page_preloader_init();
 			this.toTopInit();
 			this.responsiveMenuInit();
@@ -134,60 +134,60 @@ var Kava_Theme_JS;
 			this.swiperInit();
 		},
 
-		page_preloader_init: function() {
-			var $pleloader = $( '.page-preloader-cover' );
+		page_preloader_init: function () {
+			var $pleloader = $('.page-preloader-cover');
 
-			if ( $pleloader[0] ) {
-				$pleloader.delay( 500 ).fadeTo( 500, 0, function() {
-					$( this ).remove();
-				} );
+			if ($pleloader[0]) {
+				$pleloader.delay(500).fadeTo(500, 0, function () {
+					$(this).remove();
+				});
 			}
 		},
 
-		toTopInit: function() {
-			if ( undefined === window.kavaConfig.toTop || ! window.kavaConfig.toTop ) {
+		toTopInit: function () {
+			if (undefined === window.kavaConfig.toTop || !window.kavaConfig.toTop) {
 				return;
 			}
 
 			this.toTop();
 		},
 
-		toTop: function( options ) {
+		toTop: function (options) {
 			var defaults = {
-					buttonID:    'toTop',
-					min:         200,
-					inDelay:     600,
-					outDelay:    400,
-					scrollSpeed: 600,
-					easingType:  'linear'
-				},
-				settings = $.extend( defaults, options ),
+				buttonID: 'toTop',
+				min: 200,
+				inDelay: 600,
+				outDelay: 400,
+				scrollSpeed: 600,
+				easingType: 'linear'
+			},
+				settings = $.extend(defaults, options),
 				buttonSelector = '#' + settings.buttonID;
 
-			$( 'body' ).append( '<div id="' + settings.buttonID + '" role="button"><i class="fas fa-chevron-up"></i></div>' );
+			$('body').append('<div id="' + settings.buttonID + '" role="button"><i class="fas fa-chevron-up"></i></div>');
 
-			$( buttonSelector ).hide().on( 'click.KavaThemeToTop', function() {
-				$( 'html, body' ).animate( { scrollTop: 0 }, settings.scrollSpeed, settings.easingType );
+			$(buttonSelector).hide().on('click.KavaThemeToTop', function () {
+				$('html, body').animate({ scrollTop: 0 }, settings.scrollSpeed, settings.easingType);
 				return false;
-			} );
+			});
 
-			$( window ).on( 'scroll', function() {
-				var scrollTop = $( window ).scrollTop();
+			$(window).on('scroll', function () {
+				var scrollTop = $(window).scrollTop();
 
-				if ( scrollTop > settings.min )
-					$( buttonSelector ).fadeIn( settings.inDelay );
+				if (scrollTop > settings.min)
+					$(buttonSelector).fadeIn(settings.inDelay);
 				else
-					$( buttonSelector ).fadeOut( settings.outDelay );
-			} );
+					$(buttonSelector).fadeOut(settings.outDelay);
+			});
 		},
 
-		responsiveMenuInit: function() {
+		responsiveMenuInit: function () {
 			if (typeof kavaResponsiveMenu !== 'undefined') {
 				kavaResponsiveMenu();
 			}
 		},
 
-		magnificPopupInit: function() {
+		magnificPopupInit: function () {
 
 			if (typeof $.magnificPopup !== 'undefined') {
 
@@ -199,7 +199,7 @@ var Kava_Theme_JS;
 			}
 		},
 
-		swiperInit: function() {
+		swiperInit: function () {
 			if (typeof Swiper !== 'undefined') {
 
 				//Swiper carousel init
