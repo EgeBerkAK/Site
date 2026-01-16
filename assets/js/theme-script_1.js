@@ -164,7 +164,7 @@ var Kava_Theme_JS;
 				settings = $.extend( defaults, options ),
 				buttonSelector = '#' + settings.buttonID;
 
-			$( 'body' ).append( '<div id="' + settings.buttonID + '" role="button"></div>' );
+			$( 'body' ).append( '<div id="' + settings.buttonID + '" role="button"><i class="fas fa-chevron-up"></i></div>' );
 
 			$( buttonSelector ).hide().on( 'click.KavaThemeToTop', function() {
 				$( 'html, body' ).animate( { scrollTop: 0 }, settings.scrollSpeed, settings.easingType );
